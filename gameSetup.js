@@ -32,6 +32,6 @@ function deathSpec(event){
   var person = person.event;
     execCommand("gamemode @p sp")
     execCommand("stfu @p")
-    
+
 }
 events.playerDeath(HunterGame)
