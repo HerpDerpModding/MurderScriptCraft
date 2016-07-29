@@ -1,5 +1,5 @@
-var events = require('events');
-
-function antiCommand(event){
-  
-}
+// var events = require('events');
+//
+// function antiCommand(event){
+//
+// }
