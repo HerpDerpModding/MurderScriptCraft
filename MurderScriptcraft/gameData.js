@@ -4,6 +4,7 @@ var Drone = require('drone'),
     sounds = require('sounds'),
     utils = require('utils'),
     events = require('events');
+    var deadList = [];
     // inventory = require('inventory');
 
 // var arenaPick = [], // set list of arenas to pick from
@@ -38,7 +39,6 @@ find chat color changes
  	this.up(1)
  	.castle()
  	.fwd(24)
-
  	.castle()
  	.right(24)
  	.castle()
@@ -62,6 +62,10 @@ function execCommand( command ){
 //     });
     // set all gamemodes to adventure
 exports.hunterGame = function(events){
+    // unmutes all dead
+    for(i = 0; i === deadList.length; i++){
+      execCommand("stfu" +deadList[i]);
+    }
     //set gamemodes to adventure
     this.arena1();
     execCommand("gamemode a @a");
@@ -97,7 +101,10 @@ for(var i=0;i < 2;i++){
 // };
 
 // on death protocall
-// function deathSpec(event){
-//   execCommand("gamemode s");
-// }
-// events.playerDeath(deathSpec);
+exports.deathSpec(events){
+  var target = player.event;
+  deadList.push(player.event);
+  execCommand("gamemode sp" +target);
+  execCommand("stfu" +target);
+}
+events.playerDeath(deathSpec);
