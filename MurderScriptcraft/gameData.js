@@ -4,7 +4,7 @@ var Drone = require('drone'),
     sounds = require('sounds'),
     utils = require('utils'),
     events = require('events');
-    var deadList = [];
+var deadList = [];
     // inventory = require('inventory');
 
 // var arenaPick = [], // set list of arenas to pick from
@@ -52,7 +52,7 @@ find chat color changes
 // allow vanilla cmds
 function execCommand( command ){
     server.executeVanillaCommand(server, command);
-};
+}
 
 
 // exec main game
@@ -66,19 +66,10 @@ exports.hunterGame = function(events){
     for(i = 0; i === deadList.length; i++){
       execCommand("stfu" +deadList[i]);
     }
-    //set gamemodes to adventure
+    Events.serverGuiStart();
+
     this.arena1();
-    execCommand("gamemode a @a");
-    execCommand("effect @a minecraft:mining_fatigue 10000 5 true"); // give @a mining_fatigue 5
-    execCommand("gamerule sendCommandFeedback false"); // hide command printouts
-    execCommand("gamerule commandBlockOutput false"); // ^
-    execCommand("time set 2000"); // time set to midmorning
-    execCommand("gamerule doDaylightCycle false"); // freezes time
-    execCommand("gamerule mobGriefing false"); // mobs dont blow up/pick up blocks
-    execCommand("gamerule naturalRegeneration false"); //disables passive regen
-    execCommand("gamerule doFireTick false"); // no fire
-    execCommand("gamerule keepInventory false"); // cant keep op weps
-    execCommand("clear @a"); // prevents cheating
+    this.gameRulesStart();
 
     // show heath below name with scoreboard
     execCommand("scoreboard objectives add Health health");
