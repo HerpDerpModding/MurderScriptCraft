@@ -7,6 +7,8 @@ function execCommand( command ){
 
 function testIsOp() {
   isOp = isOp(playerName);
-  execCommand('');
+    if isOp === "true"{
+      execCommand('msg' +isOp 'you are an op');
+    }
   isOp = 0;
 }
