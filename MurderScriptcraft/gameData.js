@@ -64,7 +64,7 @@ function execCommand( command ){
 exports.hunterGame = function(events){
     // unmutes all dead
     for(i = 0; i === deadList.length; i++){
-      execCommand("stfu" +deadList[i]);
+      execCommand("mute" +deadList[i]);
     }
     Events.serverGuiStart();
 
@@ -96,6 +96,6 @@ exports.deathSpec(events){
   var target = player.event;
   deadList.push(player.event);
   execCommand("gamemode sp" +target);
-  execCommand("stfu" +target);
+  execCommand("mute" +target);
 }
 events.playerDeath(deathSpec);
