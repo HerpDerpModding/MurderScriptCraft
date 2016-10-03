@@ -1,4 +1,6 @@
 var utils = require('utils');
+var events = require('events');
 var serverAddress = utils.serverAddress();
 
-console.log('Server hosted on' +serverAddress);
+function
+console.log('Server hosted on' +serverAddress 'Running v0.4a version of ScriptCraft Murder');
